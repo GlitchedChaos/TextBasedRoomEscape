@@ -34,7 +34,7 @@ def importRoom(roomName):
             roomElements.append(roomHeight)
 
     # Dimensions Calculator
-    dimension = int(roomElements[len(roomElements) - 1])
+    dimension = int(roomElements[len(roomElements) - 1]) # bases the size of room off of lines in the text file
     roomElements.pop(len(roomElements) - 1) # remove the dimensions from list
 
     # Room Converter
