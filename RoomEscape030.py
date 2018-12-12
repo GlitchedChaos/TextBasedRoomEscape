@@ -1,4 +1,4 @@
-# Text based game - Room Escsape!
+# Text based game - Room Escape!
 # Start Date 12/10/2018
 
 # Will eventually overhaul this to make it compatible with 3D rooms
