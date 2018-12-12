@@ -24,7 +24,7 @@ def slp(amt):
 def importRoom(roomName):
     roomList = []
     for roomFileLine in open("rooms/" + roomName + "/" + roomName + ".txt"):
-        roomList.append(roomFileLine.strip())
+        roomList.append(roomFileLine.strip()) # Standard text to list for loop
 
     # Create list of individual elements
     roomElements = []
