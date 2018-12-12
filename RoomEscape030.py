@@ -1,6 +1,13 @@
 # Text based game - Room Escsape!
 # Start Date 12/10/2018
 
+# Will eventually overhaul this to make it compatible with 3D rooms
+# A lot will be changed in the process
+#
+# Renaming Notes
+# Change 'Room' to 'House'
+# Change 'Map' to 'Layout' (cos map aint 3D)
+
 # imports
 import time
 import random
@@ -18,7 +25,7 @@ loopPlayAgain = True
 
 # Simplified Sleep
 def slp(amt):
-    time.sleep(amt-amt)
+    time.sleep(amt-amt) # Remove the '-amt' for seeing actual times, this is just to test functionality
 
 # Room importer
 def importRoom(roomName):
@@ -28,9 +35,9 @@ def importRoom(roomName):
 
     # Create list of individual elements
     roomElements = []
-    for roomWidth in range(len(roomList)):
+    for roomWidth in range(len(roomList)): # Needs variable renaming
         roomSplitList = roomList[roomWidth].split(" ")
-        for roomHeight in roomSplitList:
+        for roomHeight in roomSplitList: # Same thing here
             roomElements.append(roomHeight)
 
     # Dimensions Calculator
@@ -42,14 +49,15 @@ def importRoom(roomName):
     for roomDimensionA in range(1, dimension + 1):
         for roomDimensionB in range(1, dimension + 1):
             hauntedHouse[roomDimensionA, roomDimensionB] = roomElements[(roomDimensionA - 1)*dimension + roomDimensionB - 1]
-    return hauntedHouse
+    return hauntedHouse # Everything above removed the extra details, all this does is put the elements in a 2D
+                        # Dictionary
 
 # Change Log importer
 def importChangeLog():
     changeLog = []
     for changeLogLine in open("resources/changelog.txt"):
         changeLog.append(changeLogLine.strip())
-    return changeLog
+    return changeLog # Will eventually be changed with redesign
 
 # Room Name Checker
 def checkName(name):
@@ -63,7 +71,7 @@ def checkName(name):
         slp(2)
         print("Type the name exactly as it is in the square brackets")
         slp(3)
-        return True
+        return True # Most of these functions will be merged into one big one, due to only opening 1 resource file
 
 # Theme Checker
 def checkTheme(room):
@@ -73,12 +81,12 @@ def checkTheme(room):
     for roomNameSplit in checkThemeList:
         theme = roomNameSplit.split("#")
         if room == theme[0]:
-            return theme[1]
+            return theme[1] # This needs a rebuild and rename, doesn't explain what is happening here
 
 # Import Room Description
 roomDescriptions = []
 for descriptionLine in open("resources/roomDescriptions.txt"):
-    roomDescriptions.append(descriptionLine.strip())
+    roomDescriptions.append(descriptionLine.strip()) # This will be moved into a function
 
 # Main Loop
 while loopGame:
@@ -88,6 +96,8 @@ while loopGame:
     slp(2)
     print("Navigate around the Room and try to escape!")
     slp(3.5)
+
+    # Pick House
     while loopIntro:
         print("Now pick a Room to play")
         slp(2)
@@ -96,7 +106,7 @@ while loopGame:
         for roomDescriptionLine in roomDescriptions: # Loops through and prints each room desc.
             print(roomDescriptionLine)
             slp(1)
-        print("[ChangeLog] - Shows game update list (NOTE: Not a room)")
+        print("[ChangeLog] - Shows game update list (NOTE: Not a room)") # This will be removed
         slp(2)
         playerRoomPick = input("Pick a room: \n>>> ")
         if "changelog" in playerRoomPick.lower(): # Prints Change Log if that option selected
@@ -105,11 +115,11 @@ while loopGame:
                 print(printChangeLogLine)
             print("\n\n")
             time.sleep(5)
-            print("\n\n\n\n\n\n\n\n")
+            print("\n\n\n\n\n\n\n\n") # Loops back to replay intro, kinda ugly to use in-game
         else:
             loopIntro = checkName(playerRoomPick)
 
-    # Reset Loop for when game restarts
+    # Reset Loop for when game restarts - it is done now to prevent intro skip
     loopIntro = True
 
     # Continued Intro
@@ -121,16 +131,16 @@ while loopGame:
     print("clearing screen...")
     slp(4)
     for clearScreen in range(0, 30):
-        print("\n") # clears screen so intro doesn't clutter screen
+        print("\n") # clears screen so intro doesn't clutter screen, was lazy and liked the effect of the scroll
 
     # Import Room selected by player
     GM = importRoom(playerRoomPick) # Shorthand for Game Room
 
     # Start Pos. Calculator
     for firstTupleValue in range(1, round(math.sqrt(len(GM))) + 1):
-        for secondTupleValue in range(1, round(math.sqrt(len(GM))) + 1):
-            if GM[firstTupleValue, secondTupleValue] == "S":
-                playerPosition = [firstTupleValue, secondTupleValue]
+        for secondTupleValue in range(1, round(math.sqrt(len(GM))) + 1): # Variables need renaming
+            if GM[firstTupleValue, secondTupleValue] == "S":           # Finds 'S' in the array and assigns the array
+                playerPosition = [firstTupleValue, secondTupleValue]   # as the players position array
                 newPlayerPosition = playerPosition
 
     # Short Tutorial
@@ -143,14 +153,19 @@ while loopGame:
 
     # Begin Game
     slp(3)
-    print(playerName + ", " + checkTheme(playerRoomPick))
+    print(playerName + ", " + checkTheme(playerRoomPick)) # Needs renaming and redesigning
 
     # Begin Game Loop
     loopRoom = True
     while loopRoom:
         print("Which direction do you go?")
-        slp(1)
-        playerDirection = input(">>> ").upper()
+        slp(1) # Change this to 0.5, needs faster gameplay
+        playerDirection = input(">>> ").upper() # Player input
+
+        # How moving works
+        # Attempts to print out Tile descriptions and add the value of that Tile to the relevant
+        # Players position. Any error in this is detected as a wall collision, which typically
+        # occurs when the player tries to move outside of the boundaries
 
         # Move Up - "W"
         if playerDirection == "W":
@@ -204,17 +219,17 @@ while loopGame:
                 newPlayerPosition[1] -= 1
                 playerPosition = newPlayerPosition
 
-        # Direction Error
+        # Direction Error - not typing WSAD
         else:
-            print("You sit there, contemplating why you decided to do this Room")
+            print("You sit there, contemplating why you decided to do this Room") # Change 'Room' to 'House'
             slp(3)
             print("Make sure to use the [W] [A] [S] [D] keys!")
             slp(2)
 
         # Player Escape Check / Finish Check
-        if GM[playerPosition[0], playerPosition[1]] == "F":
-            loopRoom = False
-            print("You open the device and get out of the room.")
+        if GM[playerPosition[0], playerPosition[1]] == "F": # detect if the player is 'on' an F
+            loopRoom = False                                # Change F to E, Exit instead of Finish
+            print("You open the device and get out of the room.") # Change 'device' to 'door'
             slp(3)
             print("You made it!!")
 
@@ -228,13 +243,13 @@ while loopGame:
             print("Restarting game...")
             slp(5)
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
-                  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+                  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n") # clear screen
             loopPlayAgain = False
         elif playAgainCheck == "n":
             print("Thanks for playing!!")
             slp(2)
             loopPlayAgain = False
             loopGame = False
-        else:
+        else: # error handling
             print("Please type a [y] or a [n]")
             slp(2)
