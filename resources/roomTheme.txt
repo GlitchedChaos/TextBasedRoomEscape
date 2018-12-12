@@ -1,0 +1,9 @@
+room1#With your torch broken, and no lights on, you will be walking blind in this room
+room2#With your torch broken, and no lights on, you will be walking blind in this room
+room3#With your torch broken, and no lights on, you will be walking blind in this room
+dev#This room is for testing beta content! If you found this and you're not a dev, nice file snooping ;)
+prank#Good luck getting outta this one ;)
+room6#This room is dark, confusing and disorienting. Have a nice trip!
+getlost#With your torch broken, and no lights on, you will be walking blind in this room
+
+test1#testing...

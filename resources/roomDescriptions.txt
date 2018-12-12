@@ -1,0 +1,6 @@
+[room1] - A simple 3x3 that requires little effort
+[room2] - A simple 4x4 that has a few dead ends
+[room3] - A simple 5x5 that has a few dead ends
+[room6] - A crazy 6x6 that will confuse you
+[getlost] - A crazy 6x6 that will have you running in circles
+[prank] - A 3x3 that permanently traps the player

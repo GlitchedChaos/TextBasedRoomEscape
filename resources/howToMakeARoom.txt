@@ -1,0 +1,48 @@
+This file is for teaching players how to build their own Room
+
+Requirements to make a Room - basic code reading skills
+
+Step 1: Create Room
+Each room follows a strict format. They need each Tile to be aligned in a certain way in the text document. For what you can type to be a tile, see 'translateGM.py'. Here is an example of a simple 3x3 room:
+
+# # F
+0 0 0
+S 0 #
+3
+
+This room has 5 keys things:
+1) It has a start Tile (Which is the S)
+2) It has a finish Tile (Which is the F)
+3) It has the number 3 after the Room - this is needed. All maps must be a square, and state what square it is (e.g. a 3x3 map is a Room of square 3)
+4) All Tiles in the Room are full - if you end up with empty Tiles, fill them with a 0
+5) There is nothing else in the test file - if there is anything else in the file, it will return an error trying to import the room.
+
+Rooms can be of any size. Yes, the code can take a 10000x10000, but the time needed to type out that Room and complete it would be months, years even. Realistically a good length Room would be at max a 20x20, and a short simple Room would be a 6x6/7x7
+
+Once you finish the Room give it a name. The name can ONLY have lowercase letters and numbers. Nothing else will be accepted. Save it as a plain text document (.txt) and put it somewhere easy to access. For our example we will call it 'room1.txt'
+
+Step 2: Create File System
+Once you have your Room, make your way into the Game file system and open the  file called rooms. Inside you should find various files, such as 'getlost', 'room3', 'prank' and the list goes on. Create a new file here. name it EXACTLY the same as you did the text file. Open this new file and move you text file into it.
+
+Step 3: Put your Map into the Text System
+Once you put your text document in your file, go back to the main file and find the file called 'resources'. In here you will find 3 files called 'roomDescriptions.txt', 'roomNames.txt' and 'roomTheme.txt'. 
+
+
+Open 'roomNames.txt' and add the name of your room file (ours is 'room1') to the end of the list, on a new line in the test file. Save the text file.
+
+
+Open 'roomDescriptions.txt and add the name of your room file at the end of the list in square brackets. Then add a dash (ours is [room1] - ) and then summarise your map. Also add the dimension in your description (ours is A simple 3x3). Here is an example complete description:
+
+[room1] - A simple 3x3
+
+Save the text file.
+
+
+Open 'roomTheme.txt' and add the name of your room file with a hash directly next to it (ours is room1#) at the end of the Theme list. from there add what you want the player to see when they enter the room (ours is 'With your torch broken, and no lights on, you will be walking blind in this room'). Here is an example:
+
+room1#With your torch broken, and no lights on, you will be walking blind in this room
+
+Save the text file.
+
+Step 4: Play the Game!
+Your set up is done. If any errors occur while trying to play the game, go back and make sure you followed the instructions literally to the letter. Because having even one letter in the wrong place will prevent the code from running correctly.

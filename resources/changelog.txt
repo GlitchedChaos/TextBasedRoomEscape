@@ -1,0 +1,71 @@
+Haunted House Change Log
+
+Ver [0.01] - 12/10/2018
+- Added time and random imports
+- Created simplified sleep function
+- Simple intro and prompt for map (doesn't achieve anything)
+- Created this Change Log
+
+Ver [0.05] - 12/10/2018
+- Added map importer - takes a special text file and converts it to a list
+- Added map description importer - treated separate to map
+- Can now print out map descriptions and Change Log
+
+Ver [0.10] - 13/10/2018
+- Added math import
+- Added map Dimension Calculator - works out map dimensions and how many floors
+- Added map converter - converts map to a 3D array
+- Created file hierarchy, game files are now organised
+
+Ver [0.15] - 13/10/2018
+- Game is no longer compatible with multistories, 3D arrays are too difficult to work with
+- Overhaul of map converter and all associated calculators to suit 3D->tupleDictionary
+- After 4 attempts, the tuple library method WORKS - 4 hours down the drain but worth it
+- Added a loop so that the user can view the Change Log and then can pick a Map
+- Redone intro for more excitement and dialog
+- Renamed starter maps to rooms to suit theme
+
+Ver [0.18] - 13/10/2018
+- Renamed for loop letters to readable names
+- Finished game intro, Now compatible with other themed games
+- Added theme checker
+- Added map name checker
+- Added a prank room
+
+Ver [0.20] - 14/10/2018
+- Added player position calculator
+- Added direction choices, without error checks
+- Reduced amount screen is cleared
+- Renamed A lot of variables to suit the Room Escape Theme
+
+Ver [0.25] - 17/10/2018
+- Fixed player movement, with wall collision
+- Replaced direction symbols with WASD
+- Expanded dictionaries to work with game keys - not implemented yet
+- Movement now compatible with any map, no longer just a test map
+- Added short tutorial for all rooms
+- Moved the beginning of game to after tutorial
+- Reduced screen clear amount even further
+
+Ver [0.27] - 19/10/2018
+- Added a bunch more rooms, scaled up to 6x6
+- Added finish tile detection - You can now finish the game
+
+Ver [0.30] - 21/10/2018
+- Added a game loop, so players can play different maps without relaunching game
+- Added a guide on how to make your own maps (found in 'resources')
+- Added option at end of game to play again
+- Reduced time when player tries to move outside of grid
+
+Ver [0.31] - 23/10/2018
+- Began work on a random room generator
+[randomRoom.py] - added prompts for all needed text changes
+[randomRoom.py] - added a list filler that fills an array with walls and spaces
+
+Ver [0.32] [randomRoom.py] - 23/10/2018
+- Added text file writer, the generated random room is now put in the text file
+- Added writers for other files, now successfully generates a room
+
+
+
+

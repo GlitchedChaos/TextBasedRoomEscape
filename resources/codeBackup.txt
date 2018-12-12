@@ -1,0 +1,11 @@
+Storage of unused code
+# Player Dictionary
+player = {
+    "PositionX": 0,
+    "PositionY": 0,
+    "Walk": 1,
+    "Wall": 0,
+    "greenKey": False,
+    "blueKey": False,
+    "redKey": False
+}
