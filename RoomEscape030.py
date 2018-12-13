@@ -75,10 +75,17 @@ def checkTheme(room):
         if room == theme[0]:
             return theme[1]
 
-# Import Room Description
-roomDescriptions = []
-for descriptionLine in open("resources/roomDescriptions.txt"):
-    roomDescriptions.append(descriptionLine.strip())
+# Room Description Importer
+def importDescription(roomName):
+    roomDetails = []
+    for roomDescription in open("room/" + roomName + "/roomDetails.txt"):
+        roomdetails.append(roomDescription.strip())
+    return roomDetails[2]
+
+# Import Room Names
+roomNames = []
+for roomLine in open("room/roomNames.txt"):
+    roomNames.append(roomLine.strip())
 
 # Main Loop
 while loopGame:
