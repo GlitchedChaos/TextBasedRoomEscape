@@ -39,8 +39,8 @@ def importRoom(roomName):
 
     # Room Converter
     hauntedHouse = {}
-    for roomDimensionA in range(1, dimension + 1):
-        for roomDimensionB in range(1, dimension + 1):
+    for roomDimensionA in range(1, dimension + 1):      # Loops through the dimensions of the house and appends the looped
+        for roomDimensionB in range(1, dimension + 1):  # coordinates to the tuple dictionary
             hauntedHouse[roomDimensionA, roomDimensionB] = roomElements[(roomDimensionA - 1)*dimension + roomDimensionB - 1]
     return hauntedHouse
 
