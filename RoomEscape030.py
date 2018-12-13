@@ -44,13 +44,6 @@ def importRoom(roomName):
             hauntedHouse[roomDimensionA, roomDimensionB] = roomElements[(roomDimensionA - 1)*dimension + roomDimensionB - 1]
     return hauntedHouse
 
-# Change Log importer
-def importChangeLog():
-    changeLog = []
-    for changeLogLine in open("resources/changelog.txt"):
-        changeLog.append(changeLogLine.strip())
-    return changeLog
-
 # Room Name Checker
 def checkName(name):
     roomNameList = []
@@ -104,16 +97,7 @@ while loopGame:
             print(printRoomName + " - "str(importDescription(printRoomDescription)))
             slp(1)
         slp(1)
-        playerRoomPick = input("Pick a room: \n>>> ")
-        if "changelog" in playerRoomPick.lower(): # Prints Change Log if that option selected
-            printChangeLog = importChangeLog()
-            for printChangeLogLine in printChangeLog:
-                print(printChangeLogLine)
-            print("\n\n")
-            time.sleep(5)
-            print("\n\n\n\n\n\n\n\n")
-        else:
-            loopIntro = checkName(playerRoomPick)
+        playerRoomPick = input(checkName(playerRoomPick))
 
     # Reset Loop for when game restarts
     loopIntro = True
