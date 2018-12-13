@@ -100,11 +100,10 @@ while loopGame:
         slp(2)
         print("Here are the rooms available:")
         slp(1)
-        for roomDescriptionLine in roomDescriptions: # Loops through and prints each room desc.
-            print(roomDescriptionLine)
+        for printRoomName in roomNames: # Loops through and prints each room description along with room name
+            print(printRoomName + " - "str(importDescription(printRoomDescription)))
             slp(1)
-        print("[ChangeLog] - Shows game update list (NOTE: Not a room)")
-        slp(2)
+        slp(1)
         playerRoomPick = input("Pick a room: \n>>> ")
         if "changelog" in playerRoomPick.lower(): # Prints Change Log if that option selected
             printChangeLog = importChangeLog()
